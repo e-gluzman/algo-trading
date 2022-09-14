@@ -1,11 +1,9 @@
-# financial-market-forecast
-Predicting prices for stocks and commodities
-
+# Predicting prices for stocks and commodities
 ## Project description
 
 In this project, I wanted to explore using alternative data to forecast the prices of stocks and commodities. I built a web scraper that parses articles from the Wall Street Journal archive. I extracted features from the text and used them to forecast prices for Oil, Dow Jones Industrial Average index and Tesla stock. 
 
-## Highlights/ How to run this
+### Highlights/ How to run this
 
 So far the most interesting part of the project is the web scraper I created for the WSJ archive. You can check it out if you clone the repository and run it from scrapers/wsj_scraper.py
 
@@ -15,7 +13,7 @@ Once the scraper saves the result to /data you can run the feature extractors an
 
 I have predicted the Closing price for stocks and commodities obtained from the yfinance module/ API. I have only used the text features extracted from WSJ articles. 
 
-So far the best result I have obtained is an R^2 score of <mark style="background-color:red">0.80</mark> for Tesla stock using a Gradient Boosting Regressor. 
+So far the best result I have obtained is an R^2 score of **0.80** for Tesla stock using a Gradient Boosting Regressor. 
 
 The feature importances for this model also make sense:
 
@@ -32,7 +30,9 @@ The feature importances for this model also make sense:
 | recovery                              | 0.011028   |
 | cash                                  | 0.010030   |
 
+
 For contrast, here are the feature importances for the Dow Jones Industrial Average Index model:
+
 
 | Features affecting DJI closing price | Importance |
 |--------------------------------------|------------|
@@ -46,5 +46,6 @@ For contrast, here are the feature importances for the Dow Jones Industrial Aver
 | dollar                               | 0.019271   |
 | crisis                               | 0.016630   |
 | day                                  | 0.016275   |
+
 
 This is an early demo, and I will keep improving this project!
