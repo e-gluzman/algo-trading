@@ -40,7 +40,8 @@ def extract_language_features(news: pd.DataFrame, select_top_features: int = 100
         features = counts.loc[:,top_features]
     
     dates = news.date
-    features['date'] = dates.reset_index(drop=True)
+    dates = dates.reset_index(drop=True)
+    features['date'] = dates
     features = features.groupby('date').max()
 
     return features

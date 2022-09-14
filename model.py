@@ -8,8 +8,8 @@ def fit_predict(news_features, ticker, model='tree'):
 
     X = pd.merge(news_features, ticker, how='inner', left_index= True, right_index=True)
     y = X.Close.values
-    X.drop(columns=['Close'],inplace=True)  
-    
+    X.drop(columns=['Close'],inplace=True)
+
     X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=1)
 
     if model == 'tree':
