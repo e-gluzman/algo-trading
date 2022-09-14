@@ -30,6 +30,7 @@ print('r2_score: ' + str(r2))
 print('')
 print('Most important features for predicting this variable:')
 print(importances.head(10))
+print('')
 
 model, r2, importances = fit_predict(features,DJI.loc[:,['Close']], model = 'boosting')
 
@@ -39,6 +40,7 @@ print('r2_score: ' + str(r2))
 print('')
 print('Most important features for predicting this variable:')
 print(importances.head(10))
+print('')
 
 model, r2, importances = fit_predict(features,TESLA.loc[:,['Close']], model = 'boosting')
 
