@@ -3,7 +3,7 @@
 
 In this project, I wanted to explore using alternative data to forecast the prices of stocks and commodities. I built a web scraper that parses articles from the Wall Street Journal archive. I extracted features from the text and used them to forecast prices for Oil, Dow Jones Industrial Average index and Tesla stock. 
 
-### Highlights/ How to run this
+#### Highlights/ How to run this
 
 So far the most interesting part of the project is the web scraper I created for the WSJ archive. You can check it out if you clone the repository and run it from scrapers/wsj_scraper.py
 
