@@ -5,7 +5,7 @@ from sklearn.metrics import r2_score
 import pandas as pd
 
 def fit_predict(news_features, ticker, model='tree'):
-
+    
     X = pd.merge(news_features, ticker, how='inner', left_index= True, right_index=True)
     y = X.Close.values
     X.drop(columns=['Close'],inplace=True)

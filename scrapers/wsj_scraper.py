@@ -55,7 +55,6 @@ def get_wsj_webpage_content(webpage):
     subjects = []
     headlines = []
     headline_links = []
-    
 
     for i in art:
 
@@ -109,6 +108,7 @@ def scrape_wsj_archive(start_date: str = '2018-01-01'):
     for u in range(0,len(urls)):
         
         url = urls[u]
+        #print(url)
         date = dates[u]
         webpage = requests.get(url, headers=headers)
         soup = BeautifulSoup(webpage.content, 'html.parser')
@@ -150,13 +150,13 @@ def scrape_wsj_archive(start_date: str = '2018-01-01'):
 
     return result
 
-result = scrape_wsj_archive(start_date = '2022-09-01')
+result = scrape_wsj_archive(start_date = '2015-09-01')
 
 print(result.head(10))
 
 # save results
 
-# your_path = '/Users/gluzman/Desktop/Code/financial-market-forecast'
-# path = your_path + '/data/wsj_sept.csv'
+your_path = '/Users/gluzman/Desktop/Code/stonks/financial-market-forecast'
+path = your_path + '/data/wsj_0915.csv'
 
-# result.to_csv(path)
+result.to_csv(path)

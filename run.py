@@ -15,7 +15,7 @@ keep = ['Business','U.S.','Letters','World','Commentary','Heard on the Street',
 news = news[news.subject.isin(keep)]
 
 # extract features that can be used for predicting stock prices from news text
-features = extract_language_features(news, select_top_features = 100, method = 'count')
+features = extract_language_features(news, select_top_features = None, method = 'count', ngrams = (1,2))
 
 # lets choose a few targets for prediction.
 OIL = yf.Ticker("CL=F").history(period='5y')

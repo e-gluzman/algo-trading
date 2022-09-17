@@ -13,7 +13,9 @@ Once the scraper saves the result to /data you can run the feature extractors an
 
 I have predicted the Closing price for stocks and commodities obtained from the yfinance module/ API. I have only used the text features extracted from WSJ articles. 
 
-So far the best result I have obtained is an R^2 score of **0.80** for Tesla stock using a Gradient Boosting Regressor. 
+So far the best result I have obtained is an R^2 score of **0.80** for Tesla stock using a Gradient Boosting Regressor.
+
+UPDATE: adding ngrams (bigrams) to the model have improved performance up to R^2 score = **0.89**
 
 The feature importances for this model also make sense:
 
