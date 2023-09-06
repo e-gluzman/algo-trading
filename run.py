@@ -17,36 +17,11 @@ news = news[news.subject.isin(keep)]
 # extract features that can be used for predicting stock prices from news text
 features = extract_language_features(news, select_top_features = None, method = 'count', ngrams = (1,2))
 
-# lets choose a few targets for prediction.
-OIL = yf.Ticker("CL=F").history(period='5y')
-DJI = yf.Ticker("^DJI").history(period='5y')
-TESLA = yf.Ticker("TSLA").history(period='5y')
+OIL = yf.Ticker("CL=F")
+DJI = yf.Ticker("^DJI")
+TESLA = yf.Ticker("TSLA")
 
-model, r2, importances = fit_predict(features,OIL.loc[:,['Close']], model = 'boosting')
-
-print('Oil result:')
-print('')
-print('r2_score: ' + str(r2))
-print('')
-print('Most important features for predicting this variable:')
-print(importances.head(10))
-print('')
-
-model, r2, importances = fit_predict(features,DJI.loc[:,['Close']], model = 'boosting')
-
-print('Dow Jones Industrial Average result:')
-print('')
-print('r2_score: ' + str(r2))
-print('')
-print('Most important features for predicting this variable:')
-print(importances.head(10))
-print('')
-
-model, r2, importances = fit_predict(features,TESLA.loc[:,['Close']], model = 'boosting')
-
-print('Tesla result:')
-print('')
-print('r2_score: ' + str(r2))
-print('')
-print('Most important features for predicting this variable:')
-print(importances.head(10))
+# see terminal output for results
+model, importances = fit_predict(features, OIL, model = 'boosting')
+model, importances = fit_predict(features, DJI, model = 'boosting')
+model, importances = fit_predict(features, TESLA, model = 'boosting')
