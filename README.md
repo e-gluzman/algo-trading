@@ -1,6 +1,7 @@
-# Predicting prices for stocks and commodities
+# ML algo trading
 ## Project description
 
+In this project, I am showcasing my module for developing machine learning models for algorithmic trading. 
 In this project, I wanted to explore using alternative data to forecast the prices of stocks and commodities. I built a web scraper that parses articles from the Wall Street Journal archive. I extracted features from the text and used them to forecast prices for Oil, Dow Jones Industrial Average index and Tesla stock. 
 
 #### Highlights/ How to run this
