@@ -1,6 +1,6 @@
 import pandas as pd
-from features.nlp_extractor import extract_language_features
-from models.model import fit_predict
+from scraper.nlp_extractor import extract_language_features
+from scraper.model import fit_predict
 import yfinance as yf
 
 # load news data acquired from wsj_scraper.py

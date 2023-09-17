@@ -1,16 +1,46 @@
 # ML algo trading
 ## Project description
 
-In this project, I am showcasing my module for developing machine learning models for algorithmic trading. 
-In this project, I wanted to explore using alternative data to forecast the prices of stocks and commodities. I built a web scraper that parses articles from the Wall Street Journal archive. I extracted features from the text and used them to forecast prices for Oil, Dow Jones Industrial Average index and Tesla stock. 
+In this project, I am showcasing my module for developing machine learning models for day algorithmic trading on 1-minute bars. The main module '/stonks' contains functions for extracting features from stock price data (bars), feature selection, labelling target variables, training the model and backtesting. So far I have managed to hit up to 10% monthly (~300% year) returns in backtests on a single stock.
 
-#### Highlights/ How to run this
+The '/scraper' folder also contains a web scraping algorithm I wrote for Wall Stree Journal headlines and analysing their relationship to stock and commodity prices.
 
-So far the most interesting part of the project is the web scraper I created for the WSJ archive. You can check it out if you clone the repository and run it from scrapers/wsj_scraper.py
+#### How to run this
 
-Once the scraper saves the result to /data you can run the feature extractors and the ML models from run.py
+First, read the project description below and check out the 'trading_ml_model_showcase' notebook'. It will walk you through stages of creating an ML model for trading, from feature extraction to backtesting. 
 
-## Results
+You can also have a look at the 'web_scraper_demonstration' script. It models the effect of news headlines on stock and commodity prices.
+
+## Highlights
+
+### Feature extraction
+
+The first stage is extracting features from time series price data. For that I use common techincal indicators such as exponential moving averages (EMA), moving average convergence divergence (MACD), RSI, ATR etc. I normalise these indicators to express them in terms of standard deviations or pct_change relative to stock price in time window X. Then I iterate over a large list of time windows to create hundreds of features to be used in model development.
+
+For example:
+macd_12_26 is the moving average convergence divergence comparing the 12 minute and 26 minute EMA of the Close price
+macd_12_26_pct? is the same indicator but expressed as pct % of the 12 minute EMA.
+volume_macd_100_1000 is the MACD for 100 and 1000 minute time windows calculated based on Volume.
+vol_std_pct_50 is a volatility metric based on an exponential rolling mean of standard deviaton over 50 minutes, expressed as pct
+etc.
+
+### Labelling
+
+In order to use machine learning for trading we need to label desirable outcomes such as a predicted stock price increase to generate buy signals. The best method I have found for this so far is the tripple barrier method (see Lopez de Prado, financial advances in machine learning).
+### Feature selection
+
+The next stage is selecting
+
+### Model training
+
+### Backtesting
+
+We can set the SLTP using the same method we used for labelling
+
+### Results
+
+
+### Web scraping and natural language processing
 
 I have predicted the Closing price for stocks and commodities obtained from the yfinance module/ API. I have only used the text features extracted from WSJ articles. 
 
@@ -52,3 +82,7 @@ For contrast, here are the feature importances for the Dow Jones Industrial Aver
 
 
 This is an early demo, and I will keep improving this project!
+
+### Next steps
+
+I have currently deployed the algorithm with Alpaca + Google Cloud and I am working on a strategy optimiser.
