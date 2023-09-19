@@ -1,15 +1,13 @@
 # ML algo trading
 ## Project description
 
-In this project, I am showcasing my module for developing machine learning models for day algorithmic trading on 1-minute bars. The main module '/stonks' contains functions for extracting features from stock price data (bars), feature selection, labelling target variables, training the model and backtesting. So far I have managed to hit up to 10% monthly (~300% year) returns in backtests on a single stock.
+In this project, I am showcasing my module for developing machine learning models for day algorithmic trading on 1-minute bars. So far I have managed to hit up to 10% monthly (~300% year) returns in backtests on a single stock.
 
-The '/scraper' folder also contains a web scraping algorithm I wrote for Wall Street Journal headlines and analysing their relationship to stock and commodity prices.
-
-#### How to run this
+#### How to use this
 
 First, read the project description below and check out the 'trading_ml_model_showcase' notebook'. It will walk you through stages of creating an ML model for trading, from feature extraction to backtesting. 
 
-You can also have a look at the 'web_scraper_demonstration' script. It models the effect of news headlines on stock and commodity prices.
+The main module '/stonks' contains functions for extracting features from stock price data (bars), feature selection, labelling target variables, training the model and backtesting. The '/scraper' folder contains a web scraping algorithm I wrote for Wall Street Journal headlines and analysing their relationship to stock and commodity prices. You can run the 'web_scraper_demonstration' script to see how this model works.
 
 ## Highlights
 
@@ -19,18 +17,18 @@ The first stage is extracting features from time series price data. For that I u
 
 For example:
 * macd_12_26 is the moving average convergence divergence comparing the 12 minute and 26 minute EMA of the Close price
-* macd_12_26_pct? is the same indicator but expressed as pct % of the 12 minute EMA.
+* macd_pct_12_26 is the same indicator but expressed as percentage change from the 12 minute EMA.
 * volume_macd_100_1000 is the MACD for 100 and 1000 minute time windows calculated based on Volume.
-* vol_std_pct_50 is a volatility metric based on an exponential rolling mean of standard deviaton over 50 minutes, expressed as pct
-etc.
+* vol_std_pct_50 is a volatility metric based on EMA of the standard deviaton over 50 minutes, expressed as a percentage
+* etc.
 
 (see stonks/feature_extraction.py)
 
 ### Labelling and stop-loss/ take-profit levels
 
-In order to use machine learning for trading we need to label desirable outcomes such as a predicted stock price increase to generate buy signals. The best method I have found for this so far is the tripple barrier method (see Lopez de Prado, financial advances in machine learning). The triple barrier method labels bars based on whether the stock price will move up and hit a certain price "barrier" first, a lower barrier or neither within a certain time window.
+In order to use machine learning for trading we need to label desirable outcomes such as a predicted stock price increase to generate buy signals. The best method I have found for this so far is the tripple barrier method (see Lopez de Prado, Advances in Financial Machine Learning). The triple barrier method labels bars based on whether the stock price will move up and hit a certain price "barrier" first, a lower barrier or neither within a certain time window.
 
-I calculate the expected volatility within a certain time range (e.g. 50 minutes) based on recent history e.g. over the last 3 days. I then use it do dynamically set profit/ loss targets for training the ML model and as stop-loss/ take-profit levels in backtesting.
+I set the barriers dynamically using the expected volatility within a certain time range (e.g. 50 minutes) based on recent history e.g. over the last 3 days. I use this variable for training the ML model and to set stop-loss/ take-profit levels in backtesting.
 
 (see stonks/labelling.py)
 
@@ -70,9 +68,9 @@ I have also hit much higher returns (1000% + per year) on strategies making hund
 At the moment I am deploying these strategies on a Cloud Server and testing them using the Alpaca API brokerage. However, models like this tend to decay rapidly with changing market conditions. Because of this I am currently automating the process of iterating over hundreds of such strategies with different features, time windows and stocks and deploying the highest performing models.
 
 If you would like to know more, please contact me at:
-email: gluzman64@gmail.com
-linkedin: 
-whatsapp: +447463457579
+\email: gluzman64@gmail.com
+\linkedin: 
+\whatsapp: +447463457579
 
 ### Extra: Web scraping and natural language processing
 
