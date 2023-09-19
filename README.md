@@ -67,10 +67,10 @@ I have also hit much higher returns (1000% + per year) on strategies making hund
 
 At the moment I am deploying these strategies on a Cloud Server and testing them using the Alpaca API brokerage. However, models like this tend to decay rapidly with changing market conditions. Because of this I am currently automating the process of iterating over hundreds of such strategies with different features, time windows and stocks and deploying the highest performing models.
 
-If you would like to know more, please contact me at:
-\email: gluzman64@gmail.com
-\linkedin: 
-\whatsapp: +447463457579
+If you would like to know more, please contact me at:\
+email: gluzman64@gmail.com\
+linkedin: linkedin.com/in/egluzman/\
+whatsapp: +447463457579
 
 ### Extra: Web scraping and natural language processing
 
